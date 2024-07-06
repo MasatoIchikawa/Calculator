@@ -1,4 +1,6 @@
-﻿namespace Calculator.Views
+﻿using Calculator.UserControls.CalcButtons;
+
+namespace Calculator.Views
 {
     partial class MainForm
     {
@@ -30,23 +32,25 @@
         {
             components = new System.ComponentModel.Container();
             txtResult = new TextBox();
-            btnZero = new UserControls.CalcButton();
-            btnOne = new UserControls.CalcButton();
-            btnTwo = new UserControls.CalcButton();
-            btnThree = new UserControls.CalcButton();
-            btnFour = new UserControls.CalcButton();
-            btnFive = new UserControls.CalcButton();
-            btnSix = new UserControls.CalcButton();
-            btnSeven = new UserControls.CalcButton();
-            btnEight = new UserControls.CalcButton();
-            btnNine = new UserControls.CalcButton();
-            btnDividedby = new UserControls.CalcButton();
-            btnTimes = new UserControls.CalcButton();
-            btnMinus = new UserControls.CalcButton();
-            btnPlus = new UserControls.CalcButton();
-            btnEquals = new UserControls.CalcButton();
-            btnDecimalPoint = new UserControls.CalcButton();
+            btnZero = new CalcButton();
+            btnOne = new CalcButton();
+            btnTwo = new CalcButton();
+            btnThree = new CalcButton();
+            btnFour = new CalcButton();
+            btnFive = new CalcButton();
+            btnSix = new CalcButton();
+            btnSeven = new CalcButton();
+            btnEight = new CalcButton();
+            btnNine = new CalcButton();
+            btnDividedby = new CalcButton();
+            btnTimes = new CalcButton();
+            btnMinus = new CalcButton();
+            btnPlus = new CalcButton();
+            btnEquals = new CalcButton();
+            btnDecimalPoint = new CalcButton();
             panel1 = new Panel();
+            btnClearEntry = new CalcButton();
+            btnClearAll = new CalcButton();
             lblFormula = new Label();
             viewModelBindingSource = new BindingSource(components);
             panel1.SuspendLayout();
@@ -55,22 +59,23 @@
             // 
             // txtResult
             // 
-            txtResult.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            txtResult.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtResult.Font = new Font("メイリオ", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtResult.Location = new Point(3, 33);
+            txtResult.Location = new Point(3, 31);
             txtResult.Margin = new Padding(3, 4, 3, 4);
             txtResult.Name = "txtResult";
             txtResult.ReadOnly = true;
-            txtResult.Size = new Size(258, 31);
+            txtResult.Size = new Size(247, 31);
             txtResult.TabIndex = 0;
             txtResult.TextAlign = HorizontalAlignment.Right;
             // 
             // btnZero
             // 
-            btnZero.ButtonText = UserControls.CalcButton.ButtonTextEnum.Zero;
+            btnZero.ButtonText = ButtonTextEnum.Zero;
             btnZero.FlatStyle = FlatStyle.Flat;
             btnZero.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnZero.Location = new Point(69, 141);
+            btnZero.Location = new Point(65, 172);
+            btnZero.Margin = new Padding(1);
             btnZero.Name = "btnZero";
             btnZero.Size = new Size(60, 40);
             btnZero.TabIndex = 1;
@@ -79,10 +84,11 @@
             // 
             // btnOne
             // 
-            btnOne.ButtonText = UserControls.CalcButton.ButtonTextEnum.One;
+            btnOne.ButtonText = ButtonTextEnum.One;
             btnOne.FlatStyle = FlatStyle.Flat;
             btnOne.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnOne.Location = new Point(3, 95);
+            btnOne.Location = new Point(3, 130);
+            btnOne.Margin = new Padding(1);
             btnOne.Name = "btnOne";
             btnOne.Size = new Size(60, 40);
             btnOne.TabIndex = 2;
@@ -91,22 +97,25 @@
             // 
             // btnTwo
             // 
-            btnTwo.ButtonText = UserControls.CalcButton.ButtonTextEnum.Two;
+            btnTwo.ButtonText = ButtonTextEnum.Two;
             btnTwo.FlatStyle = FlatStyle.Flat;
             btnTwo.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnTwo.Location = new Point(69, 95);
+            btnTwo.Location = new Point(65, 130);
+            btnTwo.Margin = new Padding(1);
             btnTwo.Name = "btnTwo";
             btnTwo.Size = new Size(60, 40);
             btnTwo.TabIndex = 3;
             btnTwo.Text = "2";
             btnTwo.UseVisualStyleBackColor = true;
+            btnTwo.Click += btnTwo_Click;
             // 
             // btnThree
             // 
-            btnThree.ButtonText = UserControls.CalcButton.ButtonTextEnum.Three;
+            btnThree.ButtonText = ButtonTextEnum.Three;
             btnThree.FlatStyle = FlatStyle.Flat;
             btnThree.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnThree.Location = new Point(135, 95);
+            btnThree.Location = new Point(127, 130);
+            btnThree.Margin = new Padding(1);
             btnThree.Name = "btnThree";
             btnThree.Size = new Size(60, 40);
             btnThree.TabIndex = 4;
@@ -115,10 +124,11 @@
             // 
             // btnFour
             // 
-            btnFour.ButtonText = UserControls.CalcButton.ButtonTextEnum.Four;
+            btnFour.ButtonText = ButtonTextEnum.Four;
             btnFour.FlatStyle = FlatStyle.Flat;
             btnFour.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnFour.Location = new Point(3, 49);
+            btnFour.Location = new Point(3, 88);
+            btnFour.Margin = new Padding(1);
             btnFour.Name = "btnFour";
             btnFour.Size = new Size(60, 40);
             btnFour.TabIndex = 5;
@@ -127,10 +137,11 @@
             // 
             // btnFive
             // 
-            btnFive.ButtonText = UserControls.CalcButton.ButtonTextEnum.Five;
+            btnFive.ButtonText = ButtonTextEnum.Five;
             btnFive.FlatStyle = FlatStyle.Flat;
             btnFive.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnFive.Location = new Point(69, 49);
+            btnFive.Location = new Point(65, 88);
+            btnFive.Margin = new Padding(1);
             btnFive.Name = "btnFive";
             btnFive.Size = new Size(60, 40);
             btnFive.TabIndex = 6;
@@ -139,10 +150,11 @@
             // 
             // btnSix
             // 
-            btnSix.ButtonText = UserControls.CalcButton.ButtonTextEnum.Six;
+            btnSix.ButtonText = ButtonTextEnum.Six;
             btnSix.FlatStyle = FlatStyle.Flat;
             btnSix.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSix.Location = new Point(135, 49);
+            btnSix.Location = new Point(127, 88);
+            btnSix.Margin = new Padding(1);
             btnSix.Name = "btnSix";
             btnSix.Size = new Size(60, 40);
             btnSix.TabIndex = 7;
@@ -151,10 +163,11 @@
             // 
             // btnSeven
             // 
-            btnSeven.ButtonText = UserControls.CalcButton.ButtonTextEnum.Seven;
+            btnSeven.ButtonText = ButtonTextEnum.Seven;
             btnSeven.FlatStyle = FlatStyle.Flat;
             btnSeven.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSeven.Location = new Point(3, 3);
+            btnSeven.Location = new Point(3, 46);
+            btnSeven.Margin = new Padding(1);
             btnSeven.Name = "btnSeven";
             btnSeven.Size = new Size(60, 40);
             btnSeven.TabIndex = 8;
@@ -163,10 +176,11 @@
             // 
             // btnEight
             // 
-            btnEight.ButtonText = UserControls.CalcButton.ButtonTextEnum.Eight;
+            btnEight.ButtonText = ButtonTextEnum.Eight;
             btnEight.FlatStyle = FlatStyle.Flat;
             btnEight.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEight.Location = new Point(69, 3);
+            btnEight.Location = new Point(65, 46);
+            btnEight.Margin = new Padding(1);
             btnEight.Name = "btnEight";
             btnEight.Size = new Size(60, 40);
             btnEight.TabIndex = 9;
@@ -175,10 +189,11 @@
             // 
             // btnNine
             // 
-            btnNine.ButtonText = UserControls.CalcButton.ButtonTextEnum.Nine;
+            btnNine.ButtonText = ButtonTextEnum.Nine;
             btnNine.FlatStyle = FlatStyle.Flat;
             btnNine.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNine.Location = new Point(135, 3);
+            btnNine.Location = new Point(127, 46);
+            btnNine.Margin = new Padding(1);
             btnNine.Name = "btnNine";
             btnNine.Size = new Size(60, 40);
             btnNine.TabIndex = 10;
@@ -187,10 +202,11 @@
             // 
             // btnDividedby
             // 
-            btnDividedby.ButtonText = UserControls.CalcButton.ButtonTextEnum.DividedBy;
+            btnDividedby.ButtonText = ButtonTextEnum.DividedBy;
             btnDividedby.FlatStyle = FlatStyle.Flat;
             btnDividedby.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDividedby.Location = new Point(201, 3);
+            btnDividedby.Location = new Point(189, 4);
+            btnDividedby.Margin = new Padding(1);
             btnDividedby.Name = "btnDividedby";
             btnDividedby.Size = new Size(60, 40);
             btnDividedby.TabIndex = 11;
@@ -199,10 +215,11 @@
             // 
             // btnTimes
             // 
-            btnTimes.ButtonText = UserControls.CalcButton.ButtonTextEnum.Times;
+            btnTimes.ButtonText = ButtonTextEnum.Times;
             btnTimes.FlatStyle = FlatStyle.Flat;
             btnTimes.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnTimes.Location = new Point(201, 49);
+            btnTimes.Location = new Point(189, 46);
+            btnTimes.Margin = new Padding(1);
             btnTimes.Name = "btnTimes";
             btnTimes.Size = new Size(60, 40);
             btnTimes.TabIndex = 12;
@@ -211,10 +228,11 @@
             // 
             // btnMinus
             // 
-            btnMinus.ButtonText = UserControls.CalcButton.ButtonTextEnum.Minus;
+            btnMinus.ButtonText = ButtonTextEnum.Minus;
             btnMinus.FlatStyle = FlatStyle.Flat;
             btnMinus.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnMinus.Location = new Point(201, 95);
+            btnMinus.Location = new Point(189, 88);
+            btnMinus.Margin = new Padding(1);
             btnMinus.Name = "btnMinus";
             btnMinus.Size = new Size(60, 40);
             btnMinus.TabIndex = 13;
@@ -223,10 +241,11 @@
             // 
             // btnPlus
             // 
-            btnPlus.ButtonText = UserControls.CalcButton.ButtonTextEnum.Plus;
+            btnPlus.ButtonText = ButtonTextEnum.Plus;
             btnPlus.FlatStyle = FlatStyle.Flat;
             btnPlus.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPlus.Location = new Point(201, 141);
+            btnPlus.Location = new Point(189, 130);
+            btnPlus.Margin = new Padding(1);
             btnPlus.Name = "btnPlus";
             btnPlus.Size = new Size(60, 40);
             btnPlus.TabIndex = 14;
@@ -235,10 +254,11 @@
             // 
             // btnEquals
             // 
-            btnEquals.ButtonText = UserControls.CalcButton.ButtonTextEnum.Equals;
+            btnEquals.ButtonText = ButtonTextEnum.Equals;
             btnEquals.FlatStyle = FlatStyle.Flat;
             btnEquals.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEquals.Location = new Point(135, 141);
+            btnEquals.Location = new Point(189, 172);
+            btnEquals.Margin = new Padding(1);
             btnEquals.Name = "btnEquals";
             btnEquals.Size = new Size(60, 40);
             btnEquals.TabIndex = 15;
@@ -247,10 +267,11 @@
             // 
             // btnDecimalPoint
             // 
-            btnDecimalPoint.ButtonText = UserControls.CalcButton.ButtonTextEnum.DecimalPoint;
+            btnDecimalPoint.ButtonText = ButtonTextEnum.DecimalPoint;
             btnDecimalPoint.FlatStyle = FlatStyle.Flat;
             btnDecimalPoint.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDecimalPoint.Location = new Point(3, 141);
+            btnDecimalPoint.Location = new Point(127, 172);
+            btnDecimalPoint.Margin = new Padding(1);
             btnDecimalPoint.Name = "btnDecimalPoint";
             btnDecimalPoint.Size = new Size(60, 40);
             btnDecimalPoint.TabIndex = 16;
@@ -259,6 +280,8 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnClearEntry);
+            panel1.Controls.Add(btnClearAll);
             panel1.Controls.Add(btnSeven);
             panel1.Controls.Add(btnDecimalPoint);
             panel1.Controls.Add(btnZero);
@@ -276,11 +299,37 @@
             panel1.Controls.Add(btnSix);
             panel1.Controls.Add(btnEight);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 80);
+            panel1.Location = new Point(0, 64);
             panel1.Margin = new Padding(1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(264, 185);
+            panel1.Size = new Size(253, 215);
             panel1.TabIndex = 17;
+            // 
+            // btnClearEntry
+            // 
+            btnClearEntry.ButtonText = ButtonTextEnum.ClearEntry;
+            btnClearEntry.FlatStyle = FlatStyle.Flat;
+            btnClearEntry.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnClearEntry.Location = new Point(65, 4);
+            btnClearEntry.Margin = new Padding(1);
+            btnClearEntry.Name = "btnClearEntry";
+            btnClearEntry.Size = new Size(60, 40);
+            btnClearEntry.TabIndex = 20;
+            btnClearEntry.Text = "CE";
+            btnClearEntry.UseVisualStyleBackColor = true;
+            // 
+            // btnClearAll
+            // 
+            btnClearAll.ButtonText = ButtonTextEnum.ClearAll;
+            btnClearAll.FlatStyle = FlatStyle.Flat;
+            btnClearAll.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnClearAll.Location = new Point(127, 4);
+            btnClearAll.Margin = new Padding(1);
+            btnClearAll.Name = "btnClearAll";
+            btnClearAll.Size = new Size(60, 40);
+            btnClearAll.TabIndex = 19;
+            btnClearAll.Text = "C";
+            btnClearAll.UseVisualStyleBackColor = true;
             // 
             // lblFormula
             // 
@@ -295,7 +344,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(264, 265);
+            ClientSize = new Size(253, 279);
             Controls.Add(lblFormula);
             Controls.Add(panel1);
             Controls.Add(txtResult);
@@ -303,7 +352,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "MainForm";
+            Text = "電卓";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)viewModelBindingSource).EndInit();
             ResumeLayout(false);
@@ -313,24 +362,26 @@
         #endregion
 
         private TextBox txtResult;
-        private UserControls.CalcButton btnZero;
-        private UserControls.CalcButton btnOne;
-        private UserControls.CalcButton btnTwo;
-        private UserControls.CalcButton btnThree;
-        private UserControls.CalcButton btnFour;
-        private UserControls.CalcButton btnFive;
-        private UserControls.CalcButton btnSix;
-        private UserControls.CalcButton btnSeven;
-        private UserControls.CalcButton btnEight;
-        private UserControls.CalcButton btnNine;
-        private UserControls.CalcButton btnDividedby;
-        private UserControls.CalcButton btnTimes;
-        private UserControls.CalcButton btnMinus;
-        private UserControls.CalcButton btnPlus;
-        private UserControls.CalcButton btnEquals;
-        private UserControls.CalcButton btnDecimalPoint;
+        private CalcButton btnZero;
+        private CalcButton btnOne;
+        private CalcButton btnTwo;
+        private CalcButton btnThree;
+        private CalcButton btnFour;
+        private CalcButton btnFive;
+        private CalcButton btnSix;
+        private CalcButton btnSeven;
+        private CalcButton btnEight;
+        private CalcButton btnNine;
+        private CalcButton btnDividedby;
+        private CalcButton btnTimes;
+        private CalcButton btnMinus;
+        private CalcButton btnPlus;
+        private CalcButton btnEquals;
+        private CalcButton btnDecimalPoint;
         private Panel panel1;
         private Label lblFormula;
         private BindingSource viewModelBindingSource;
+        private CalcButton btnClearEntry;
+        private CalcButton btnClearAll;
     }
 }
