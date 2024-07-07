@@ -29,6 +29,21 @@ namespace Calculator.Commands
                     plus.Execute(vm);
                     Result = plus.Result;
                     break;
+                case "-":
+                    var minus = new MinusCommand();
+                    minus.Execute(vm);
+                    Result = minus.Result;
+                    break;
+                case "×":
+                    var times = new TimesCommand();
+                    times.Execute(vm);
+                    Result = times.Result;
+                    break;
+                case "÷":
+                    var dividedby = new DividedByCommand();
+                    dividedby.Execute(vm);
+                    Result = dividedby.Result;
+                    break;
             }
 
             Formal = $"{vm.ValueLeft} {vm.Symbol} {vm.Result} =";

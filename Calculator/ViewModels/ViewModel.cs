@@ -24,6 +24,33 @@ namespace Calculator.ViewModels
                 BeforeClickButton = command.BeforeClickButton;
                 OnPropertyChanged(nameof(Result));
             };
+            MinusCommand.PropertyChanged += (sender, e) =>
+            {
+                Symbol = "-";
+                var command = (MinusCommand)sender!;
+                ValueLeft = command.ValueLeft;
+                Result = command.Result;
+                BeforeClickButton = command.BeforeClickButton;
+                OnPropertyChanged(nameof(Result));
+            };
+            TimesCommand.PropertyChanged += (sender, e) =>
+            {
+                Symbol = "×";
+                var command = (TimesCommand)sender!;
+                ValueLeft = command.ValueLeft;
+                Result = command.Result;
+                BeforeClickButton = command.BeforeClickButton;
+                OnPropertyChanged(nameof(Result));
+            };
+            DividedByCommand.PropertyChanged += (sender, e) =>
+            {
+                Symbol = "÷";
+                var command = (DividedByCommand)sender!;
+                ValueLeft = command.ValueLeft;
+                Result = command.Result;
+                BeforeClickButton = command.BeforeClickButton;
+                OnPropertyChanged(nameof(Result));
+            };
             EqualCommand.PropertyChanged += (sender, e) =>
             {
                 ValueLeft = string.Empty;
@@ -59,6 +86,9 @@ namespace Calculator.ViewModels
 
         public InputCommand InputCommand { get; set; } = new InputCommand();
         public PlusCommand PlusCommand { get; set; } = new PlusCommand();
+        public MinusCommand MinusCommand { get; set; } = new MinusCommand();
+        public TimesCommand TimesCommand { get; set; } = new TimesCommand();
+        public DividedByCommand DividedByCommand { get; set; } = new DividedByCommand();
         public EqualCommand EqualCommand { get; set; } = new EqualCommand();
         public ClearEntryCommand ClearEntryCommand { get; set; } = new ClearEntryCommand();
         public ClearAllCommand ClearAllCommand { get; set; } = new ClearAllCommand();

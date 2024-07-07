@@ -8,7 +8,7 @@ using System.Reflection.Metadata;
 
 namespace Calculator.Commands
 {
-    public class PlusCommand : ICommand, INotifyPropertyChanged
+    public class MinusCommand : ICommand, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -30,11 +30,11 @@ namespace Calculator.Commands
             {
                 var inputA = vm.ValueLeft.TryDecimal();
                 var inputB = vm.Result.TryDecimal();
-                var calc = (inputA + inputB).ToString();
+                var calc = (inputA - inputB).ToString();
                 ValueLeft = calc;
                 Result = calc;
             }
-            BeforeClickButton = ButtonTextEnum.Plus;
+            BeforeClickButton = ButtonTextEnum.Minus;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Result)));
         }
     }

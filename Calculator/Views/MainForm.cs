@@ -22,6 +22,9 @@ namespace Calculator.Views
             btnDecimalPoint.Click += (sender, e) => _vm.InputCommand.Execute(Tuple.Create(sender!, _vm));
 
             btnPlus.Click += (sender, e) => _vm.PlusCommand.Execute(_vm);
+            btnMinus.Click += (sender, e) => _vm.MinusCommand.Execute(_vm);
+            btnTimes.Click += (sender, e) => _vm.TimesCommand.Execute(_vm);
+            btnDividedby.Click += (sender, e) => _vm.DividedByCommand.Execute(_vm);
             btnEquals.Click += (sender, e) => _vm.EqualCommand.Execute(_vm);
 
             btnClearAll.Click += (sender, e) => _vm.ClearAllCommand.Execute(null);
