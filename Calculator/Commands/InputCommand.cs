@@ -1,5 +1,7 @@
-﻿using Calculator.UserControls.CalcButtons;
+﻿using Calculator.Commands.Interfaces;
+using Calculator.UserControls.CalcButtons;
 using Calculator.Utilities.Methods;
+using Calculator.ViewModels;
 using Microsoft.VisualBasic;
 using System.ComponentModel;
 
@@ -9,19 +11,32 @@ namespace Calculator.Commands
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        public ButtonTextEnum BeforeClickButton { get; set; } = ButtonTextEnum.None;
         public string Result { get; set; } = string.Empty;
 
         public void Execute(object? param)
         {
             Result = string.Empty;
 
-            var tuple = param as Tuple<object, TextBox>;
+            var tuple = param as Tuple<object, ViewModel>;
             if (tuple == null) return;
 
             var button = tuple.Item1 as CalcButton;
             if (button == null) return;
 
-            var txtResult = tuple.Item2.Text;
+            var txtResult = tuple.Item2.Result;
+            switch (tuple.Item2.BeforeClickButton)
+            {
+                case ButtonTextEnum.Plus:
+                case ButtonTextEnum.Minus:
+                case ButtonTextEnum.Times:
+                case ButtonTextEnum.DividedBy:
+                case ButtonTextEnum.Equals:
+                    txtResult = string.Empty;
+                    break;
+            }
+
+            BeforeClickButton = button.ButtonText;
             Result = button.ButtonText.GetName();
 
             if (button.ButtonText == ButtonTextEnum.DecimalPoint)
@@ -43,7 +58,6 @@ namespace Calculator.Commands
             {
                 Result = txtResult + Result;
             }
-
             
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Result)));
         }

@@ -333,12 +333,12 @@ namespace Calculator.Views
             // 
             // lblFormula
             // 
-            lblFormula.AutoSize = true;
-            lblFormula.Location = new Point(210, 9);
+            lblFormula.Location = new Point(3, 9);
             lblFormula.Name = "lblFormula";
-            lblFormula.Size = new Size(42, 18);
+            lblFormula.Size = new Size(249, 18);
             lblFormula.TabIndex = 18;
             lblFormula.Text = "label1";
+            lblFormula.TextAlign = ContentAlignment.MiddleRight;
             // 
             // MainForm
             // 
