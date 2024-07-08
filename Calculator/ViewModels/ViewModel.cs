@@ -1,6 +1,8 @@
 ﻿using Calculator.Commands;
 using Calculator.UserControls.CalcButtons;
+using Calculator.Utilities.Methods;
 using System.ComponentModel;
+using System.Diagnostics;
 
 namespace Calculator.ViewModels
 {
@@ -13,47 +15,53 @@ namespace Calculator.ViewModels
                 var command = (InputCommand)sender!;
                 Result = command.Result;
                 BeforeClickButton = command.BeforeClickButton;
+                _WriteLog(command.BeforeClickButton);
                 OnPropertyChanged(nameof(Result));
             };
             PlusCommand.PropertyChanged += (sender, e) =>
             {
-                Symbol = "+";
+
                 var command = (PlusCommand)sender!;
-                ValueLeft = command.ValueLeft;
+                Symbol = command.BeforeClickButton.GetName();
+                FormalLeft = command.FormalLeft;
                 Result = command.Result;
                 BeforeClickButton = command.BeforeClickButton;
+                _WriteLog(command.BeforeClickButton);
                 OnPropertyChanged(nameof(Result));
             };
             MinusCommand.PropertyChanged += (sender, e) =>
             {
-                Symbol = "-";
                 var command = (MinusCommand)sender!;
-                ValueLeft = command.ValueLeft;
+                Symbol = command.BeforeClickButton.GetName();
+                FormalLeft = command.FormalLeft;
                 Result = command.Result;
                 BeforeClickButton = command.BeforeClickButton;
+                _WriteLog(command.BeforeClickButton);
                 OnPropertyChanged(nameof(Result));
             };
             TimesCommand.PropertyChanged += (sender, e) =>
             {
-                Symbol = "×";
                 var command = (TimesCommand)sender!;
-                ValueLeft = command.ValueLeft;
+                Symbol = command.BeforeClickButton.GetName();
+                FormalLeft = command.FormalLeft;
                 Result = command.Result;
                 BeforeClickButton = command.BeforeClickButton;
+                _WriteLog(command.BeforeClickButton);
                 OnPropertyChanged(nameof(Result));
             };
             DividedByCommand.PropertyChanged += (sender, e) =>
             {
-                Symbol = "÷";
                 var command = (DividedByCommand)sender!;
-                ValueLeft = command.ValueLeft;
+                Symbol = command.BeforeClickButton.GetName();
+                FormalLeft = command.FormalLeft;
                 Result = command.Result;
                 BeforeClickButton = command.BeforeClickButton;
+                _WriteLog(command.BeforeClickButton);
                 OnPropertyChanged(nameof(Result));
             };
             EqualCommand.PropertyChanged += (sender, e) =>
             {
-                ValueLeft = string.Empty;
+                FormalLeft = string.Empty;
                 Symbol = string.Empty;
                 Result = decimal.Zero.ToString();
 
@@ -61,6 +69,7 @@ namespace Calculator.ViewModels
                 _formalEqual = command.Formal;
                 _resultEqual = command.Result;
                 BeforeClickButton = command.BeforeClickButton;
+                _WriteLog(command.BeforeClickButton);
                 OnPropertyChanged(nameof(EqualCommand.Result));
             };
             ClearEntryCommand.PropertyChanged += (sender, e) =>
@@ -69,21 +78,25 @@ namespace Calculator.ViewModels
                 Result = command.Result;
                 _formalEqual = command.FormalEqual;
                 _resultEqual = command.ResultEqual;
+                BeforeClickButton = command.BeforeClickButton;
+                _WriteLog(command.BeforeClickButton);
                 OnPropertyChanged(nameof(Result));
             };
             ClearAllCommand.PropertyChanged += (sender, e) =>
             {
                 var command = (ClearAllCommand)sender!;
                 Symbol = string.Empty;
-                ValueLeft = command.ValueLeft;
+                FormalLeft = command.ValueLeft;
                 Result = command.Result;
                 _formalEqual = command.FormalEqual;
                 _resultEqual = command.ResultEqual;
-                BeforeClickButton = ButtonTextEnum.None;
+                BeforeClickButton = command.BeforeClickButton;
+                _WriteLog(command.BeforeClickButton);
                 OnPropertyChanged(nameof(Result));
             };
         }
 
+        private static readonly log4net.ILog _logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()!.DeclaringType);
         public InputCommand InputCommand { get; set; } = new InputCommand();
         public PlusCommand PlusCommand { get; set; } = new PlusCommand();
         public MinusCommand MinusCommand { get; set; } = new MinusCommand();
@@ -93,27 +106,16 @@ namespace Calculator.ViewModels
         public ClearEntryCommand ClearEntryCommand { get; set; } = new ClearEntryCommand();
         public ClearAllCommand ClearAllCommand { get; set; } = new ClearAllCommand();
 
-        private string _valueLeft = string.Empty;
-        public string ValueLeft
+        private string _formalLeft = string.Empty;
+        public string FormalLeft
         {
-            get => _valueLeft;
+            get => _formalLeft;
             set
             {
-                _valueLeft = value;
-                OnPropertyChanged(nameof(ValueLeft));
+                _formalLeft = value;
+                OnPropertyChanged(nameof(_formalLeft));
             }
         }
-
-        //private string _valueRight = string.Empty;
-        //public string ValueRight
-        //{
-        //    get => _valueRight;
-        //    set
-        //    {
-        //        _valueRight = value;
-        //        OnPropertyChanged(nameof(ValueRight));
-        //    }
-        //}
 
         private string _formal = string.Empty;
         private string _formalEqual = string.Empty;
@@ -121,7 +123,7 @@ namespace Calculator.ViewModels
         {
             get
             {
-                return BeforeClickButton == ButtonTextEnum.Equals ? _formalEqual : $"{ValueLeft} {Symbol}";
+                return BeforeClickButton == ButtonTextEnum.Equals ? _formalEqual : $"{FormalLeft} {Symbol}";
             }
             set
             {
@@ -147,6 +149,26 @@ namespace Calculator.ViewModels
 
         public string Symbol { get; set; } = string.Empty;
         public ButtonTextEnum BeforeClickButton;
+
+        public bool IsDebug =>
+            #if DEBUG
+                true;
+            #else
+                false;
+            #endif
+
+        private void _WriteLog(ButtonTextEnum button)
+        {
+            var text = $"{button.GetName()}をクリックしました。";
+            if (IsDebug)
+            {
+                Debug.WriteLine(text);
+            }
+            else
+            {
+                _logger.Info(text);
+            }
+        }
 
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged(string propertyName)

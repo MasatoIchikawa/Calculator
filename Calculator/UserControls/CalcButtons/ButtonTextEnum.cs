@@ -28,7 +28,7 @@ namespace Calculator.UserControls.CalcButtons
         Nine,
         [Name(".")]
         DecimalPoint,
-        [Name("＋")]
+        [Name("+")]
         Plus,
         [Name("-")]
         Minus,

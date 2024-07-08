@@ -2,7 +2,6 @@
 using Calculator.UserControls.CalcButtons;
 using Calculator.Utilities.Methods;
 using Calculator.ViewModels;
-using Microsoft.VisualBasic;
 using System.ComponentModel;
 
 namespace Calculator.Commands

@@ -26,14 +26,30 @@ namespace Calculator.Utilities.Methods
             return index != -1 ? valueStr.Substring(index + 1).Length : 0 ;
         }
 
-        public static decimal TryDecimal(this object value)
+        public static decimal TryDecimal<T>(this T value)
         {
             decimal num;
-            if (decimal.TryParse(value.ToString(), out num))
+            if (decimal.TryParse(value?.ToString(), out num))
             {
                 return num;
             }
             return 0;
+        }
+
+        public static int TryInt<T>(this T value)
+        {
+            int num;
+            if (int.TryParse(value?.ToString(), out num))
+            {
+                return num;
+            }
+            return 0;
+        }
+
+        public static decimal ToRoundDown(this decimal value, int number)
+        {
+            var num = "1".PadRight(number + 1, '0').TryInt();
+            return Math.Floor(value * num) / num;
         }
     }
 }

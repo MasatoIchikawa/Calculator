@@ -1,10 +1,7 @@
 ﻿using Calculator.Commands.Interfaces;
 using Calculator.UserControls.CalcButtons;
-using Calculator.Utilities.Methods;
 using Calculator.ViewModels;
-using Microsoft.VisualBasic;
 using System.ComponentModel;
-using System.Reflection.Metadata;
 
 namespace Calculator.Commands
 {
@@ -46,7 +43,7 @@ namespace Calculator.Commands
                     break;
             }
 
-            Formal = $"{vm.ValueLeft} {vm.Symbol} {vm.Result} =";
+            Formal = $"{vm.FormalLeft} {vm.Symbol} {vm.Result} =";
             BeforeClickButton = ButtonTextEnum.Equals;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Result)));
         }

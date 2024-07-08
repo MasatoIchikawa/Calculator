@@ -71,6 +71,7 @@ namespace Calculator.Views
             // 
             // btnZero
             // 
+            btnZero.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnZero.ButtonText = ButtonTextEnum.Zero;
             btnZero.FlatStyle = FlatStyle.Flat;
             btnZero.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -84,6 +85,7 @@ namespace Calculator.Views
             // 
             // btnOne
             // 
+            btnOne.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnOne.ButtonText = ButtonTextEnum.One;
             btnOne.FlatStyle = FlatStyle.Flat;
             btnOne.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -97,6 +99,7 @@ namespace Calculator.Views
             // 
             // btnTwo
             // 
+            btnTwo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnTwo.ButtonText = ButtonTextEnum.Two;
             btnTwo.FlatStyle = FlatStyle.Flat;
             btnTwo.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -111,6 +114,7 @@ namespace Calculator.Views
             // 
             // btnThree
             // 
+            btnThree.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnThree.ButtonText = ButtonTextEnum.Three;
             btnThree.FlatStyle = FlatStyle.Flat;
             btnThree.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -124,6 +128,7 @@ namespace Calculator.Views
             // 
             // btnFour
             // 
+            btnFour.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnFour.ButtonText = ButtonTextEnum.Four;
             btnFour.FlatStyle = FlatStyle.Flat;
             btnFour.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -137,6 +142,7 @@ namespace Calculator.Views
             // 
             // btnFive
             // 
+            btnFive.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnFive.ButtonText = ButtonTextEnum.Five;
             btnFive.FlatStyle = FlatStyle.Flat;
             btnFive.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -150,6 +156,7 @@ namespace Calculator.Views
             // 
             // btnSix
             // 
+            btnSix.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnSix.ButtonText = ButtonTextEnum.Six;
             btnSix.FlatStyle = FlatStyle.Flat;
             btnSix.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -163,6 +170,7 @@ namespace Calculator.Views
             // 
             // btnSeven
             // 
+            btnSeven.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnSeven.ButtonText = ButtonTextEnum.Seven;
             btnSeven.FlatStyle = FlatStyle.Flat;
             btnSeven.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -176,6 +184,7 @@ namespace Calculator.Views
             // 
             // btnEight
             // 
+            btnEight.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnEight.ButtonText = ButtonTextEnum.Eight;
             btnEight.FlatStyle = FlatStyle.Flat;
             btnEight.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -189,6 +198,7 @@ namespace Calculator.Views
             // 
             // btnNine
             // 
+            btnNine.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnNine.ButtonText = ButtonTextEnum.Nine;
             btnNine.FlatStyle = FlatStyle.Flat;
             btnNine.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -202,6 +212,7 @@ namespace Calculator.Views
             // 
             // btnDividedby
             // 
+            btnDividedby.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnDividedby.ButtonText = ButtonTextEnum.DividedBy;
             btnDividedby.FlatStyle = FlatStyle.Flat;
             btnDividedby.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -215,6 +226,7 @@ namespace Calculator.Views
             // 
             // btnTimes
             // 
+            btnTimes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnTimes.ButtonText = ButtonTextEnum.Times;
             btnTimes.FlatStyle = FlatStyle.Flat;
             btnTimes.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -228,6 +240,7 @@ namespace Calculator.Views
             // 
             // btnMinus
             // 
+            btnMinus.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnMinus.ButtonText = ButtonTextEnum.Minus;
             btnMinus.FlatStyle = FlatStyle.Flat;
             btnMinus.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -241,6 +254,7 @@ namespace Calculator.Views
             // 
             // btnPlus
             // 
+            btnPlus.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnPlus.ButtonText = ButtonTextEnum.Plus;
             btnPlus.FlatStyle = FlatStyle.Flat;
             btnPlus.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -254,6 +268,7 @@ namespace Calculator.Views
             // 
             // btnEquals
             // 
+            btnEquals.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnEquals.ButtonText = ButtonTextEnum.Equals;
             btnEquals.FlatStyle = FlatStyle.Flat;
             btnEquals.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -267,6 +282,7 @@ namespace Calculator.Views
             // 
             // btnDecimalPoint
             // 
+            btnDecimalPoint.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnDecimalPoint.ButtonText = ButtonTextEnum.DecimalPoint;
             btnDecimalPoint.FlatStyle = FlatStyle.Flat;
             btnDecimalPoint.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -307,6 +323,7 @@ namespace Calculator.Views
             // 
             // btnClearEntry
             // 
+            btnClearEntry.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnClearEntry.ButtonText = ButtonTextEnum.ClearEntry;
             btnClearEntry.FlatStyle = FlatStyle.Flat;
             btnClearEntry.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -320,6 +337,7 @@ namespace Calculator.Views
             // 
             // btnClearAll
             // 
+            btnClearAll.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnClearAll.ButtonText = ButtonTextEnum.ClearAll;
             btnClearAll.FlatStyle = FlatStyle.Flat;
             btnClearAll.Font = new Font("メイリオ", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
@@ -349,7 +367,9 @@ namespace Calculator.Views
             Controls.Add(panel1);
             Controls.Add(txtResult);
             Font = new Font("メイリオ", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "電卓";

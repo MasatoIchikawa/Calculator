@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using Calculator.Commands.Interfaces;
+using Calculator.UserControls.CalcButtons;
 
 namespace Calculator.Commands
 {
@@ -7,6 +8,7 @@ namespace Calculator.Commands
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        public ButtonTextEnum BeforeClickButton { get; set; } = ButtonTextEnum.ClearAll;
         public string ValueLeft { get; set; } = string.Empty;
         public string Result { get; set; } = string.Empty;
         public string FormalEqual { get; set; } = string.Empty;
